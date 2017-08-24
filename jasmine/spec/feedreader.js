@@ -86,9 +86,8 @@ $(function() {
             loadFeed(0, done);
         });
 
-        it('are loaded', function(done) {
+        it('are loaded', function() {
             expect($(".feed .entry").length).toBeGreaterThanOrEqualTo(1);
-            done();
         });
          
 
@@ -105,13 +104,12 @@ $(function() {
 
         beforeEach(function(done) {
             loadFeed(0, function() {
-                entryOne = $(".feed").html;
-                done();
-            });
+                entryOne = $(".feed").text();
 
-            loadFeed(1, function() {
-                entryTwo = $(".feed").html;
-                done();
+                loadFeed(1, function() {
+                    entryTwo = $(".feed").text();
+                    done();
+                });
             });
         });
 
